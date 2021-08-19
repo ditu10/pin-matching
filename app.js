@@ -61,7 +61,10 @@ document.getElementById('submit-btn').addEventListener('click', function () {
     let input = document.getElementById('display-field').value;
     if (pin == input) {
         console.log('pin matched!!');
-        alert('✅ Whooo!! Pin Matched... The Secret door is opening for you')
+        alert('✅ Whooo!! Pin Matched... The Secret door is opening for you');
+        document.getElementById('input-generate').value = '';
+        document.getElementById('display-field').value = '';
+        document.getElementById('submit-btn').setAttribute('disabled', true);
     }
     else {
         let count = document.getElementById('matching-left').innerText;
@@ -71,7 +74,9 @@ document.getElementById('submit-btn').addEventListener('click', function () {
         document.getElementById('matching-left').innerText = count;
         alert("❌ Sorry, Pin Didn't Match, Please try again")
         if (count == 0) {
+            
             document.getElementById('submit-btn').setAttribute('disabled', true);
+            alert('Please, Generate a new pin and try again')
         }
     }
 })
